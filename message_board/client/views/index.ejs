@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Web Page</title>
+</head>
+<body>
+	<h1>The Dojo Message Board</h1>
+	<form action='/create_message' method='post'>
+		<h3>Name: </h3><input type="text" name="name">
+		<h3>Message: </h3><input type="text" name="message">
+		<input type="submit" value="Post Message">
+		<hr>
+	</form>
+	<% for (message of messages) { %>
+		<h3>Name: <%= message.name %></h3>
+		<h3>Message: <%= message.message %></h3>
+
+		<% for (comment of message.comments) { %>
+			<h5>Name: <%= comment.name %></h5>
+			<h5>Comment: <%= comment.comment %></h5>
+		<% } %>
+		<form action='/create_comment' method='post'>
+			<h5>Name: </h3><input type="text" name="name">
+			<h5>Comment: </h3><input type="text" name="comment">
+			<input type="hidden" name="message_id" value="<%= message._id %>">
+			<input type="submit" value="Post Comment">
+		</form>
+		<hr>
+	<% } %>
+</body>
+</html>
