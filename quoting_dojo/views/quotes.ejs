@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QuotingDojo</title>
+</head>
+<body>
+	<% for (quote of quotes) { %>
+		<h5><%= quote.quote %></h5><br>
+		<h5><%= quote.name %>  <%=quote.createdAt%></h5><br>
+		<h5><%= quote.likes %></h5>
+		<form action="/like" method="post">
+			<input type="hidden" name="quote_id" value=<%=quote._id%>>
+			<input type="submit" value="LIKE!?!">
+		</form>
+	<% } %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "products_and_orders",
+  "homepage": "https://github.com/smashbro6894/MeanAssignments",
+  "authors": [
+    "smashbro6894 <patrickobrien831@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

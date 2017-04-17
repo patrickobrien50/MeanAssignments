@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Products and Orders</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body ng-app="app">
+    <div ng-controller="productController">
+      Product Name: <input type="text" ng-model="newProduct.name">
+      Product Price: <input type="text" ng-model="newProduct.price">
+      <button ng-click="add(newProduct)">Add Product</button>
+      <table>
+        <tr>
+          <th>Name:</th>
+          <th>Price:</th>
+          <th>Actions</th>
+        </tr>
+        <tr ng-repeat="product in productsOnDisplay">
+          <td>is this working?</td>
+          <td>{{product.name}}</td>
+          <td>${{product.price}}</td>
+          <td><button ng-click="delete(product)">Delete Object</button></td>
+        </tr>
+      </table>
+    </div>
+    <div ng-controller="orderController">
+      <table>
+        <tr>
+          <th>Name </th>
+          <th>Price </th>
+          <th>Qty Available</th>
+          <th>Actions</th>
+        </tr>
+        <tr ng-repeat="product in productsOnDisplay">
+          <td>{{product.name}}</td>
+          <td>${{product.price}}</td>
+          <td>{{product.quantity}}</td>
+          <td><button ng-click="purchase(product)" ng-show="product.quantity">Buy</button></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
