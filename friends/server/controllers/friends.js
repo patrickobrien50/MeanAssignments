@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
-var Friend = mongoose.model('Friend');
+var Friend = mongoose.model('Friend');   //creates an object contructor to use in the process of making a friend object.
 
 module.exports = {
-  index: function(req, res){
-    console.log(req.body);
-    Friend.find({}, function(err, friends) {
-      if (!err) {
+  index: function(req, res){                   //takes the request and response data and performs the index function. index()
+    Friend.find({}, function(err, friends) {   //makes a query to the database and finds all the objects currently stored in it.
+      console.log(req.body);                   //then uses an anonymous function as a callback to handle the data we get back from the query.
+      if (!err) {                              //If there is an error, we handle it, else we send the friends we got to the factory.
         res.json({message: "Success", friends: friends});
       } else {
         res.json({message: "Error", error: err});
@@ -25,14 +25,14 @@ module.exports = {
     })
   },
 
-  create: function(req, res){
-    var friend = new Friend();
+  create: function(req, res){                     //takes the request data and creates a new Friend object and assigns the attributes we sent in the request
+    var friend = new Friend();                    //by using body-parser and parsing the data so we can access each individual piece.
     friend.first_name = req.body.first_name;
     friend.last_name = req.body.last_name;
     friend.birthday = req.body.birthday;
-    friend.save(function(err) {
-      if (!err) {
-        res.json({message: "Success", friend: friend}); 
+    friend.save(function(err) {                   //performs a built in method for objects called save(). This takes an anonymous function for a callback
+      if (!err) {                                 //and saves the friend object into the database. 
+        res.json({message: "Success", friend: friend});
       } else {
         res.json({message: "Error", error: err});
       }
@@ -48,7 +48,7 @@ module.exports = {
       friend.birthday = req.body.birthday;
       friend.save(function(err) {
         if (!err) {
-          res.json({message: "Success", friend: friend}); 
+          res.json({message: "Success", friend: friend});
         } else {
           res.json({message: "Error", error: err});
         }
