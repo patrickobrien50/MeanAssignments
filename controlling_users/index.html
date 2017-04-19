@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src='../bower_components/angular/angular.js'></script>
+	<script src="main.js"></script>
+	<title>Something goes in here</title>
+</head>
+<body ng-app="app">
+	<div ng-controller="userController">
+		<form ng-submit="submit()">
+			<h4>First Name </h4><input type="text" name="first_name" ng-model="first_name">
+			<h4>Last Name </h4><input type="text" name="last_name" ng-model="last_name">
+			<h4>Favorite Language </h4><input type="text" name="fav_lang" ng-model="fav_lang">
+			<input type="submit" value="Create User">
+		</form>
+		Search by: <input type="text" ng-model="filter_by">
+		<table>
+			<ul>
+				<tr>
+					<th ng-click="sort='first_name'">First Name</th>
+					<th ng-click="sort='last_name'">Last Name</th>
+					<th ng-click="sort='fav_lang'">Fav Language</th>
+					<th ng-click="sort='created_at'">Created At</th>
+					<th>Actions</th>
+				</tr>
+				<tr ng-repeat="user in users | filter: filter_by | orderBy: sort">
+					<td>{{user.first_name}}</td>
+					<td>{{user.last_name}}</td>
+					<td>{{user.fav_lang}}</td>
+					<td>{{user.created_at}}</td>
+					<td><button ng-click="delete(user)">Delete User</button></td>
+				</tr>
+			</ul>
+		</table>
+	</div>
+</body>
+</html>

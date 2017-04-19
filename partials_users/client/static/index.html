@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Base page</title>
+	<script src="angular/angular.js"></script>
+	<script src="angular-route/angular-route.js"></script>
+	<script src="main.js"></script>
+</head>
+<body ng-app='app'>
+	<h1>script source question</h1><br>
+
+	<div>
+		<a href="#!/users">Users List</a> | <a href="#!/list">Customize Users</a>
+		<div ng-view=""></div>
+	</div>
+</body>
+</html>

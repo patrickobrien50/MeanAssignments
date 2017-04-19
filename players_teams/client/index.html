@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular/angular.js"></script>
+	<script src="angular-route/angular-route.js"></script>
+	<script src="./js/config/main.js"></script>
+	<script src="./js/config/routes.js"></script>
+	<script src="./js/factories/playerFactory.js"></script>
+	<script src="./js/factories/teamFactory.js"></script>
+	<script src="./js/controllers/associationsController.js"></script>
+	<script src="./js/controllers/playersController.js"></script>
+	<script src="./js/controllers/teamsController.js"></script>
+	<title>Players and Teams</title>
+</head>
+<body ng-app="app">
+	<div>
+		<a href="#!/players">Players</a> <a href="#!teams/">Teams</a> <a href="#!associations/">Associations</a>
+		<div ng-view=""></div>
+	</div>
+</body>
+</html>
